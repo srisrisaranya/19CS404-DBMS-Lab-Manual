@@ -62,6 +62,7 @@ order by AppointmentDate;
 **Output:**
 ![image](https://github.com/user-attachments/assets/27ff126f-b56d-4b66-ba50-f6382ca1fd99)
 
+
 **Question 2**
 ```
 How many prescriptions were written by each doctor?
@@ -74,6 +75,7 @@ count(*) as TotalPrescriptions
 from Prescriptions
 group by DoctorID;
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/173e25e4-e9fe-4ee7-a3ca-9fbe25c83a37)
 
@@ -103,6 +105,7 @@ Sample table: employee1
 select sum(workhour) as "Total working hours"
 from employee1
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/a156af16-017b-424b-998c-2d38d7ee1f39)
 
@@ -117,6 +120,7 @@ select count(*) as COUNT
 from customer
 where city='Noida';
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/1ea1a845-4fbc-4edd-bfe0-a960a1ea6770)
 
@@ -139,6 +143,7 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 select sum(purch_amt) as TOTAL
 from orders
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/066397a1-02ad-4ee3-8c77-3fa35849479e)
 
@@ -159,6 +164,7 @@ phone       INTEGER
 select avg(length(email)) as avg_email_length
 from customer
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/bb697094-c247-4863-a903-d3a75b46e34c)
 
@@ -174,6 +180,7 @@ from products
 group by category_id
 having category_id<3;
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/b7450e6a-84ee-49f8-98b2-d704abd40929)
 
@@ -189,6 +196,7 @@ from customer1
 group by age_group
 having MIN(age)<25;
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/57cd75a8-3dc1-49fb-874c-617d1e4c4859)
 
@@ -204,6 +212,7 @@ from customer1
 group by address
 having AVG(salary)<15000;
 ```
+
 **Output:**
 ![image](https://github.com/user-attachments/assets/fa67ef19-0e2b-4672-89d3-4f620a621763)
 
