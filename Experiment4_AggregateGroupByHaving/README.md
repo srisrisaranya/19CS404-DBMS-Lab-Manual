@@ -60,9 +60,8 @@ order by AppointmentDate;
 ```
 
 **Output:**
-```
+
 ![image](https://github.com/user-attachments/assets/27ff126f-b56d-4b66-ba50-f6382ca1fd99)
-```
 
 **Question 2**
 ```
