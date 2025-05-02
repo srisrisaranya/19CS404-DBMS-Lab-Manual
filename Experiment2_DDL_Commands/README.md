@@ -105,11 +105,12 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---- Insert all books from Out_of_print_books into Books
-    Table attributes are ISBN, Title, Author, Publisher, YearPublished
+``` 
+Insert all books from Out_of_print_books into Books
+Table attributes are ISBN, Title, Author, Publisher, YearPublished
 ```
-
---- 
+# Program:
+```
 INSERT into Books(ISBN,Title,Author,Publisher,YearPublished)
 SELECT ISBN,Title,Author,Publisher,YearPublished
 FROM Out_of_print_books
@@ -120,95 +121,93 @@ FROM Out_of_print_books
 
 
 **Question 2**
----
--- Create a new table named contacts with the following specifications:
+```
+Create a new table named contacts with the following specifications:
 contact_id as INTEGER and primary key.
 first_name as TEXT and not NULL.
 last_name as TEXT and not NULL.
 email as TEXT.
 phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
-
-```
 ```
 # program:
 ```
---sql CREATE TABLE contacts(
+CREATE TABLE contacts(
 contact_id INTEGER Primary Key,
 first_name TEXT not NULL,
 last_name TEXT not NULL,
 email TEXT,
 phone TEXT not NULL check(length(phone)>=10)
 );
-
 ```
 **Output**:
 
 ![image](https://github.com/user-attachments/assets/a8bbe4ee-89ed-44ef-b1ce-2609c96c4e3d)
 
 **Question 3**
----
--- Write an SQL command can to add a column named email of type TEXT to the customers table
-
 ```
---sql ALTER TABLE customers
+Write an SQL command can to add a column named email of type TEXT to the customers table
+```
+# program:
+```
+ALTER TABLE customers
 add column email TEXT;
 ```
 **Output:**
+![Screenshot 2025-05-02 105350](https://github.com/user-attachments/assets/e5038cee-f5af-40fc-829a-f1ce0730be32)
 
 **Question 4**
----
--- In the Products table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
-
 ```
---sql INSERT into Products(ProductID,Name,Category)values(106,'Fitness Tracker','Wearables');
+In the Products table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
+```
+# program:
+```
+INSERT into Products(ProductID,Name,Category)values(106,'Fitness Tracker','Wearables');
 INSERT into Products(ProductID,Name,Category,Price,Stock)values(107,'Laptop','Electronic',999.99,50);
 INSERT into Products(ProductID,Name,Category,Stock)values(108,'Wireless Earbud','Accessorie',100);
--- 
-```
-
+ ```
 **Output:**
 ![image](https://github.com/user-attachments/assets/9d513603-578c-44c5-9927-7cc0d4eee0b5)
 
 **Question 5**
----
+```
 Create a table named Members with the following columns:
 MemberID as INTEGER
 MemberName as TEXT
 JoinDate as DATE
-
 ```
--- sql CREATE TABLE Members(
+# program:
+```
+CREATE TABLE Members(
 MemberID INTEGER,
 MemberName TEXT,
 JoinDate DATE
 );
 ```
-
 **Output:**
 ![image](https://github.com/user-attachments/assets/b1af10f8-772f-4d27-b7b3-99b0293ea98a)
 
 **Question 6**
----
--- Insert a record with EmployeeID 001, Name Sarah Parker, Position Manager, Department HR, and Salary 60000 into the Employee table.
-
 ```
---sql
+Insert a record with EmployeeID 001, Name Sarah Parker, Position Manager, Department HR, and Salary 60000 into the Employee table.
+```
+# program:
+```
 INSERT into Employee(EmployeeID,Name,Position,Department,Salary)values(001,'Sarah Parker','Manager','HR',60000);
 ```
-
 **Output:**
 ![image](https://github.com/user-attachments/assets/872946d8-c19a-4183-a702-68a2f6c191b0)
 
 **Question 7**
----
--- Create a table named ProjectAssignments with the following constraints:
+  ```
+   Create a table named ProjectAssignments with the following constraints:
    AssignmentID as INTEGER should be the primary key.
    EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
    ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
    AssignmentDate as DATE should be NOT NULL.
-
-```sql
--- CREATE TABLE ProjectAssignments(
+```
+# program:
+```
+CREATE TABLE ProjectAssignments(
    AssignmentID INTEGER Primary Key,
    EmployeeID INTEGER,
    ProjectID INTEGER,
@@ -219,18 +218,19 @@ INSERT into Employee(EmployeeID,Name,Position,Department,Salary)values(001,'Sara
 ```
 
 **Output:**
-
+![Screenshot 2025-05-02 110121](https://github.com/user-attachments/assets/d68ab257-79c4-43b6-8575-d25636541893)
 
 **Question 8**
----
--- Create a table named Products with the following constraints:
+```
+Create a table named Products with the following constraints:
 ProductID as INTEGER should be the primary key.
 ProductName as TEXT should be unique and not NULL.
 Price as REAL should be greater than 0.
 StockQuantity as INTEGER should be non-negative.
-
-```sql
--- CREATE TABLE Products(
+```
+# program:
+```
+CREATE TABLE Products(
 ProductID INTEGER Primary Key,
 ProductName TEXT unique not NULL,
 Price REAL check(Price>0),
@@ -243,16 +243,17 @@ StockQuantity INTEGER check(StockQuantity>0)
 
 
 **Question 9**
----
--- Create a table named Invoices with the following constraints:
+```
+Create a table named Invoices with the following constraints:
 InvoiceID as INTEGER should be the primary key.
 InvoiceDate as DATE.
 Amount as REAL should be greater than 0.
 DueDate as DATE should be greater than the InvoiceDate.
 OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
-
-```sql
--- CREATE TABLE Invoices(
+```
+# program:
+```
+CREATE TABLE Invoices(
 InvoiceID INTEGER Primary Key,
 InvoiceDate DATE,
 Amount REAL check(Amount>0),
@@ -261,15 +262,16 @@ OrderID INTEGER,
 foreign key(OrderID) references Orders(OrderID)
 );
 ```
-
 **Output:**
+![Screenshot 2025-05-02 110438](https://github.com/user-attachments/assets/b319d7c0-822a-4b56-a875-6c62e626a054)
 
 **Question 10**
----
--- Write a SQL Query  to add attribute ISBN as varchar(30) and domain_dept as varchar(30) in the table 'books'
-
-```sql
--- ALTER TABLE books
+```
+Write a SQL Query  to add attribute ISBN as varchar(30) and domain_dept as varchar(30) in the table 'books'
+```
+# program:
+```
+ALTER TABLE books
 ADD ISBN varchar(30);
 ALTER TABLE books
 ADD domain_dept varchar(30);
