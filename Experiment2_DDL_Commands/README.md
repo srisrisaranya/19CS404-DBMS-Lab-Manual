@@ -1,6 +1,6 @@
 # Experiment 2: DDL Commands
 
-## AIM
+## AIM:
 To study and implement DDL commands and different types of constraints.
 
 ## THEORY
@@ -104,124 +104,179 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+--- Insert all books from Out_of_print_books into Books
+    Table attributes are ISBN, Title, Author, Publisher, YearPublished
+```
 
-```sql
--- Paste your SQL code below for Question 1
+--- 
+INSERT into Books(ISBN,Title,Author,Publisher,YearPublished)
+SELECT ISBN,Title,Author,Publisher,YearPublished
+FROM Out_of_print_books
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/f1575650-5ab0-440f-aa94-28732464e8cc)
 
-![Output1](output.png)
 
 **Question 2**
 ---
--- Paste Question 2 here
+-- Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 
-```sql
--- Paste your SQL code below for Question 2
 ```
+```
+# program:
+```
+--sql CREATE TABLE contacts(
+contact_id INTEGER Primary Key,
+first_name TEXT not NULL,
+last_name TEXT not NULL,
+email TEXT,
+phone TEXT not NULL check(length(phone)>=10)
+);
 
-**Output:**
+```
+**Output**:
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/a8bbe4ee-89ed-44ef-b1ce-2609c96c4e3d)
 
 **Question 3**
 ---
--- Paste Question 3 here
+-- Write an SQL command can to add a column named email of type TEXT to the customers table
 
-```sql
--- Paste your SQL code below for Question 3
 ```
-
+--sql ALTER TABLE customers
+add column email TEXT;
+```
 **Output:**
-
-![Output3](output.png)
 
 **Question 4**
 ---
--- Paste Question 4 here
+-- In the Products table, insert a record where some fields are NULL, another record where all fields are filled without any NULL values, and a third record where some fields are filled, and others are left as NULL.
 
-```sql
--- Paste your SQL code below for Question 4
+```
+--sql INSERT into Products(ProductID,Name,Category)values(106,'Fitness Tracker','Wearables');
+INSERT into Products(ProductID,Name,Category,Price,Stock)values(107,'Laptop','Electronic',999.99,50);
+INSERT into Products(ProductID,Name,Category,Stock)values(108,'Wireless Earbud','Accessorie',100);
+-- 
 ```
 
 **Output:**
-
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/9d513603-578c-44c5-9927-7cc0d4eee0b5)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Create a table named Members with the following columns:
+MemberID as INTEGER
+MemberName as TEXT
+JoinDate as DATE
 
-```sql
--- Paste your SQL code below for Question 5
+```
+-- sql CREATE TABLE Members(
+MemberID INTEGER,
+MemberName TEXT,
+JoinDate DATE
+);
 ```
 
 **Output:**
-
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/b1af10f8-772f-4d27-b7b3-99b0293ea98a)
 
 **Question 6**
 ---
--- Paste Question 6 here
+-- Insert a record with EmployeeID 001, Name Sarah Parker, Position Manager, Department HR, and Salary 60000 into the Employee table.
 
-```sql
--- Paste your SQL code below for Question 6
+```
+--sql
+INSERT into Employee(EmployeeID,Name,Position,Department,Salary)values(001,'Sarah Parker','Manager','HR',60000);
 ```
 
 **Output:**
-
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/872946d8-c19a-4183-a702-68a2f6c191b0)
 
 **Question 7**
 ---
--- Paste Question 7 here
+-- Create a table named ProjectAssignments with the following constraints:
+   AssignmentID as INTEGER should be the primary key.
+   EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+   ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+   AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 7
+-- CREATE TABLE ProjectAssignments(
+   AssignmentID INTEGER Primary Key,
+   EmployeeID INTEGER,
+   ProjectID INTEGER,
+   AssignmentDate DATE not NULL,
+   foreign key(EmployeeID) references Employees(EmployeeID)
+   foreign key(ProjectID) references Projects(ProjectID)
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
 
 **Question 8**
 ---
--- Paste Question 8 here
+-- Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 
 ```sql
--- Paste your SQL code below for Question 8
+-- CREATE TABLE Products(
+ProductID INTEGER Primary Key,
+ProductName TEXT unique not NULL,
+Price REAL check(Price>0),
+StockQuantity INTEGER check(StockQuantity>0)
+);
 ```
 
 **Output:**
+![image](https://github.com/user-attachments/assets/797baddf-4507-4525-85d0-a5f9b23b5499)
 
-![Output8](output.png)
 
 **Question 9**
 ---
--- Paste Question 9 here
+-- Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 9
+-- CREATE TABLE Invoices(
+InvoiceID INTEGER Primary Key,
+InvoiceDate DATE,
+Amount REAL check(Amount>0),
+DueDate DATE check(DueDate>InvoiceDate),
+OrderID INTEGER,
+foreign key(OrderID) references Orders(OrderID)
+);
 ```
 
 **Output:**
-
-![Output9](output.png)
 
 **Question 10**
 ---
--- Paste Question 10 here
+-- Write a SQL Query  to add attribute ISBN as varchar(30) and domain_dept as varchar(30) in the table 'books'
 
 ```sql
--- Paste your SQL code below for Question 10
+-- ALTER TABLE books
+ADD ISBN varchar(30);
+ALTER TABLE books
+ADD domain_dept varchar(30);
 ```
-
 **Output:**
+![image](https://github.com/user-attachments/assets/c7804088-0bce-4d73-87c1-c2c52c6fffc7)
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/7ecc775b-f1a8-4500-a295-b3df7b5613d1)
 
 
 ## RESULT
