@@ -1,5 +1,6 @@
 # Experiment 2: DDL Commands
-
+# Name: Saranya S
+# Register number: 212223110044
 ## AIM:
 To study and implement DDL commands and different types of constraints.
 
